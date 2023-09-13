@@ -1,0 +1,59 @@
+import { ReviewLayout } from '@/components/ReviewLayout'
+import Image from 'next/image'
+import refactoringUI from './refactoring-ui.png'
+
+export const review = {
+  author: 'Ahmed Gadir',
+  date: '2023-08-10',
+  title: '"Refactoring UI" by Adam Wathan & Steve Schoger',
+  description:
+    'A common misconception is the idea that frontend developers inherently possess design skills. We are generally skilled at writing efficient code, but creating a visually compelling and user-friendly interface is a different ball game. This book bridges that knowledge gap.',
+}
+
+export const metadata = {
+  title: review.title,
+  description: review.description,
+}
+
+export default (props) => <ReviewLayout review={review} {...props} />
+
+# The Must-Have Guide That Frontend Developers Didn't Know They Needed
+
+<Image src={refactoringUI} alt="'Refactoring UI' Book Cover" width={400} />
+
+### **The Basics**
+
+- **Title:** Refactoring UI
+- **Authors:** Adam Wathan & Steve Schoger
+- **Published:** 2018
+- **Pages:** 252
+
+### A Favorite for Frontend Developers
+
+"Refactoring UI" has easily earned its place as my new favorite book as a frontend developer. At a time when frontend developers are often wrongly assumed to be UI/UX experts, this book stands as a fundamental guide to understanding design from a developer's standpoint.
+
+### Bridging the Gap Between Code and Design
+
+One of the misconceptions this book addresses is the idea that frontend developers inherently possess design skills. We are generally skilled at writing efficient code, but creating a visually compelling and user-friendly interface is a different ball game. This book bridges that knowledge gap.
+
+### Design Features, Not Layouts
+
+Wathan and Schoger advocate for a feature-centric approach to design, urging designers to focus on features rather than layouts. This goes against the grain of defaulting to navigation bars, footers, and other common page elements. The idea is to find out if you even need these elements, a piece of advice that can significantly impact how you approach new projects.
+
+### A New Perspective on Color Schemes
+
+The book also delves into the underestimated complexity of color schemes. Most online color palettes don't offer the variety needed for an impactful design. Wathan and Schoger recommend using 8-10 shades of each color, giving specific tips on maintaining color saturation as lightness varies. This has been an eye-opener for me, offering more nuanced control over visual designs.
+
+### Navigating the World of Fonts
+
+When it comes to fonts, the authors offer a simple but effective hack: focus on Google Fonts that are both popular and offer more than 10 styles. Fonts crafted with multiple weights generally receive more care and attention in their creation, making them more reliable choices for your designs.
+
+### Whitespace and Shadows: Subtle Yet Crucial
+
+The authors make a compelling case for starting with too much whitespace and then cutting back, as opposed to doing it the other way around. This ensures that the design doesn't feel cramped. The book also dives into the art of mimicking light sources to add depth to your pages through the creative use of shadows—a nuanced skill that can elevate your designs from good to great.
+
+### Final Thoughts
+
+"Refactoring UI" has significantly broadened my design understanding and equipped me with practical skills and hacks that I can directly apply to my work. It's more than just a book; it's a toolkit every frontend developer should have in their arsenal.
+
+**Rating: 5/5**

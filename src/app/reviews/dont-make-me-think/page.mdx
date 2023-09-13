@@ -1,0 +1,69 @@
+import { ReviewLayout } from '@/components/ReviewLayout'
+import Image from 'next/image'
+import dontMakeMeThink from './dont-make-me-think.webp'
+
+export const review = {
+  author: 'Ahmed Gadir',
+  date: '2023-08-24',
+  title: '"Dont Make Me Think" by Steve Krug',
+  description:
+    'A Quick, Entertaining Read With Insightful Takeaways and Some Shortcomings.',
+}
+
+export const metadata = {
+  title: review.title,
+  description: review.description,
+}
+
+export default (props) => <ReviewLayout review={review} {...props} />
+
+# A Quick, Entertaining Read With Insightful Takeaways and Some Shortcomings
+
+<Image src={dontMakeMeThink} alt="'Dont Make Me Think' Book Cover" />
+
+### **The Basics**
+
+- **Title:** Don't Make Me Think, Revisited
+- **Author:** Steve Krug
+- **Published:** 2014
+- **Pages:** 216
+
+### A Quick & Entertaining Read
+
+Steve Krug's "Don't Make Me Think, Revisited" excels in being both a quick and entertaining read. Krug’s engaging writing style allows you to breeze through the book, making it perfect for a short commitment of just an evening or two. It’s a rare feat for a tech book to be this fun, and that in itself is commendable.
+
+### The Philosophy of Easy Clicks
+
+The book offers a fascinating insight into what Krug refers to as the 'click philosophy.' The common idea that 'fewer clicks are better' is subverted by Krug, who argues that the number of clicks isn't the issue—it's how intuitive each click is. He highlights that an 'easy click' is one where the user doesn't have to think and feels confident that they are getting closer to their desired goal. This is a nuanced but invaluable point that has the potential to reshape how we approach user navigation.
+
+### The Goodwill Factor: A Deep Dive
+
+Krug's discussion on the factors that influence user goodwill stands as one of the most useful sections in the book. He categorizes actions that either increase or diminish goodwill into specific, easily relatable terms:
+
+#### Diminishing Goodwill
+
+1. **Hiding Essential Information:** Krug cites the example of websites that make it hard to find essential information, like customer service numbers. Such designs can frustrate users and diminish goodwill.
+2. **Punishing Users:** Websites that penalize users for not conforming to prescribed formats (e.g., entering dates, phone numbers) erode trust and can push users away.
+3. **Unnecessary Data Collection:** Asking for more information than necessary (e.g., unnecessary profile questions during sign-up) can feel invasive and diminish goodwill.
+
+#### Increasing Goodwill
+
+1. **Making Important Functions Obvious:** Krug recommends identifying the main things users want to accomplish on your site and making those paths as straightforward as possible.
+2. **Saving User Steps:** A prime example Krug provides is how many e-commerce stores now send emails with pre-filled tracking numbers for shipped items, saving users the step of having to enter the tracking number manually.
+3. **Anticipating User Questions:** The addition of helpful FAQ sections or tool-tips that pre-emptively answer common questions can significantly enhance user goodwill.
+
+This section alone is rich in actionable tips, offering both pitfalls to avoid and positive actions to implement.
+
+### Common Knowledge Points
+
+While the book is insightful, it falters when presenting examples of bad UX design that are now common knowledge. Guidelines like keeping web pages scannable or highlighting selected tabs feel rudimentary for the modern internet user.
+
+### Lengthy Usability Testing Section
+
+Krug’s section on conducting usability testing, while informative, feels disproportionately long and somewhat out of sync with the rest of the book's concise tone.
+
+### Final Thoughts
+
+"Don't Make Me Think, Revisited" combines entertainment with valuable insights into the world of UX design, albeit with a few bumps along the way. It's a quick read with some golden nuggets of wisdom, especially when it comes to the idea of user goodwill and easy navigation.
+
+**Rating: 4.1/5**

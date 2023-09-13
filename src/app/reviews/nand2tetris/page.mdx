@@ -1,0 +1,63 @@
+import { ReviewLayout } from '@/components/ReviewLayout'
+import Image from 'next/image'
+import nand2Tetris from './nand2tetris.jpeg'
+
+export const review = {
+  author: 'Ahmed Gadir',
+  date: '2023-07-14',
+  title: '"The Elements of Computing Systems" by Noam Nisan & Shimon Schocken',
+  description:
+    'If you’ve ever been curious about how computers work at the most basic level, this book offers a complete and engaging guide to demystify the complex layers of computing systems.',
+}
+
+export const metadata = {
+  title: review.title,
+  description: review.description,
+}
+
+export default (props) => <ReviewLayout review={review} {...props} />
+
+# An Enthralling Expedition Through the Layers of a Computer
+
+<Image
+  src={nand2Tetris}
+  alt="'The Elements of Computing Systems' Book Cover"
+  width={400}
+/>
+
+### **The Basics**
+
+- **Title:** The Elements of Computing Systems
+- **Authors:** Noam Nisan & Shimon Schocken
+- **Published:** 2005
+- **Pages:** 344
+
+### Satisfying Curiosity Without Wasting Time
+
+While computer science is a deep field with multiple layers to explore, not all these layers are directly relevant to everyone’s work or interests. This book expertly avoids needless complexity, focusing on the essentials that really matter. It satisfied my curiosity about computing systems without making me wade through unnecessary details.
+
+### Comprehensive Coverage
+
+From hardware architecture and operating systems to programming languages, compilers, data structures, algorithms, and software engineering—this book has it all. I particularly enjoyed how the course was structured, giving enough information on each layer to provide clarity but not so much to overwhelm.
+
+### A Hands-On Approach
+
+Okay, confession time—I cheated a bit by watching the YouTube lectures instead of reading the book. But guess what? The visual presentation made the concepts even more engaging. Regardless of your medium of choice, the educational journey is incredibly effective.
+
+### The Software-Hardware Spectrum
+
+The authors masterfully bridge the gap between software and hardware, providing a holistic view of computing systems. This approach enables a profound understanding of both the software and hardware components, erasing the boundary commonly seen in traditional courses or books.
+
+### Theoretical Wisdom with Practical Skill-building
+
+One of the remarkable aspects of this book is its hands-on approach. Unlike other theoretical texts, it guides you through practical exercises that include building a simulated computer. This gives an understanding of how every 'if' and 'else' in your code translates down to the bare metal.
+
+### A Rich Pedagogical Experience
+
+While the book itself offers a powerful educational journey, the accompanying website enriches that experience by providing all the tools you need to build your own computer, from simple Boolean gates to a fully functioning CPU.
+
+### Final Thoughts
+
+"The Elements of Computing Systems" or Nand2Tetris, as it's commonly called, is more than just a book. It's an experiential journey through the nuts and bolts of a computer system. It’s been perfect for satiating my curiosity without bogging me down in details that don’t pertain to my work.
+
+**Rating: 4.5/5**
