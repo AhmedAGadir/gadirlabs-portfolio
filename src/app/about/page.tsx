@@ -74,7 +74,7 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I've always been inclined towards both technical and creative
+              I&apos;ve always been inclined towards both technical and creative
               fields, excelling in math and art during my school years, I
               assumed life would be smooth sailing. This led me to pursue
               engineering in university, a field I believed would play to my
