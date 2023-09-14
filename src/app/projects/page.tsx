@@ -28,9 +28,9 @@ const projects: {
   {
     name: 'PDFGrid',
     description:
-      'Export AG Grid instances to PDF using the pdfmake library. Built in Vue.js but also available in React, Angular and Vanilla JS.',
+      'Export AG Grid instances to PDF using the pdfmake library. Available in React, Angular, Vue.js and vanilla JavaScript.',
     link: {
-      href: 'https://github.com/AhmedAGadir/vue-ag-grid-pdf-make',
+      href: 'https://github.com/AhmedAGadir/react-ag-grid-pdf-make',
       label: 'github.com',
     },
     logo: logoPDFGrid,
@@ -99,7 +99,7 @@ export default function Projects() {
               <Card.Link href={project.link.href} target="_blank">
                 <span>{project.name}</span>
                 {project.beta && (
-                  <span className="text-xxs ml-2 inline-flex items-center rounded-md bg-zinc-400/10 px-2 py-1 font-medium uppercase text-zinc-400 ring-1 ring-inset ring-zinc-400/20">
+                  <span className="ml-2 inline-flex items-center rounded-md bg-zinc-400/10 px-2 py-1 text-xxs font-medium uppercase text-zinc-400 ring-1 ring-inset ring-zinc-400/20">
                     BETA
                   </span>
                 )}

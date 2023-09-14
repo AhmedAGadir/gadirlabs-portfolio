@@ -74,18 +74,26 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I&apos;ve always been inclined towards both technical and creative
-              fields, excelling in math and art during my school years, I
-              assumed life would be smooth sailing. This led me to pursue
-              engineering in university, a field I believed would play to my
-              strengths.
+              My career kicked off 5 years ago at AG Grid, a startup that gave
+              me the opportunity to master frontend technologies like React,
+              Angular, and Vue. I was responsible for developing a diverse range
+              of web applications, and I shared my expertise through various{' '}
+              <Link
+                href="https://blog.ag-grid.com/author/ahmed/"
+                arial-label="AG Grid blog posts"
+                target="_blank"
+                className="font-medium text-teal-500 hover:underline dark:text-teal-400"
+              >
+                blog posts
+              </Link>
+              .
             </p>
 
             <p>
-              But upon graduating, I felt unfulfilled. Despite years spent
-              solving complex problems, I questioned my ability to add real
-              value to businesses. That&apos;s when I discovered software
-              development and was instantly captivated.
+              Three years into my journey, I took on new challenges at Coremont,
+              a cloud-based financial portfolio platform. It was here that I
+              refined my skills in component library construction and deepened
+              my knowledge of frontend architectures and patterns.
             </p>
 
             <figure className="mx-auto">
@@ -115,27 +123,16 @@ export default function About() {
             </figure>
 
             <p>
-              I spent the subsequent year juggling part-time work as a math
-              tutor while building my junior developer{' '}
-              <Link
-                href="http://ahmedagadir.com/"
-                arial-label="ahmed gadir junior developer portfolio"
-                target="_blank"
-                className="font-medium text-teal-500 hover:underline dark:text-teal-400"
-              >
-                portfolio
-              </Link>
-              . Fast forward five years, and I&apos;ve had the privilege of
-              working with several companies, developing dozens of web
-              applications, and collaborating with incredibly talented
-              individuals.
+              Having been privileged to collaborate with several accomplished
+              companies and individuals, I &apos;ve been part of teams that have
+              brought dozens of web applications to life.
             </p>
 
             <p>
-              Now, my focus is solely on product development. If an idea strikes
-              or if somebody wants to work on an interesting project, I act on
-              it immediately, acquiring any necessary skills along the way to
-              bring it to fruition.
+              Fast forward today, my focus is solely on product development. If
+              an idea strikes or if somebody wants to work on an interesting
+              project, I act on it immediately, acquiring any necessary skills
+              along the way to bring it to fruition.
             </p>
           </div>
         </div>
