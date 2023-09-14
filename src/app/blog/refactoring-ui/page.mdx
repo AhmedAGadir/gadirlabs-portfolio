@@ -1,8 +1,8 @@
-import { ReviewLayout } from '@/components/ReviewLayout'
+import { BlogLayout } from '@/components/BlogLayout'
 import Image from 'next/image'
 import refactoringUI from './refactoring-ui.png'
 
-export const review = {
+export const blog = {
   author: 'Ahmed Gadir',
   date: '2023-08-10',
   title: '"Refactoring UI" by Adam Wathan & Steve Schoger',
@@ -11,11 +11,11 @@ export const review = {
 }
 
 export const metadata = {
-  title: review.title,
-  description: review.description,
+  title: blog.title,
+  description: blog.description,
 }
 
-export default (props) => <ReviewLayout review={review} {...props} />
+export default (props) => <BlogLayout blog={blog} {...props} />
 
 # The Must-Have Guide That Frontend Developers Didn't Know They Needed
 

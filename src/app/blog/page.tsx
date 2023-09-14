@@ -2,31 +2,31 @@ import { type Metadata } from 'next'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { type ReviewWithSlug, getAllReviews } from '@/lib/reviews'
+import { type BlogWithSlug, getAllBlogs } from '@/lib/blog'
 import { formatDate } from '@/lib/formatDate'
 
-function Review({ review }: { review: ReviewWithSlug }) {
+function Blog({ blog }: { blog: BlogWithSlug }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/reviews/${review.slug}`}>{review.title}</Card.Title>
+        <Card.Title href={`/reviews/${blog.slug}`}>{blog.title}</Card.Title>
         <Card.Eyebrow
           as="time"
-          dateTime={review.date}
+          dateTime={blog.date}
           className="md:hidden"
           decorate
         >
-          {formatDate(review.date)}
+          {formatDate(blog.date)}
         </Card.Eyebrow>
-        <Card.Description>{review.description}</Card.Description>
-        <Card.Cta>Read review</Card.Cta>
+        <Card.Description>{blog.description}</Card.Description>
+        <Card.Cta>Full book review</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
-        dateTime={review.date}
+        dateTime={blog.date}
         className="mt-1 hidden md:block"
       >
-        {formatDate(review.date)}
+        {formatDate(blog.date)}
       </Card.Eyebrow>
     </article>
   )
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ReviewsIndex() {
-  let reviews = await getAllReviews()
+  let reviews = await getAllBlogs()
 
   return (
     <SimpleLayout
@@ -49,7 +49,7 @@ export default async function ReviewsIndex() {
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">
           {reviews.map((review) => (
-            <Review key={review.slug} review={review} />
+            <Blog key={review.slug} blog={review} />
           ))}
         </div>
       </div>

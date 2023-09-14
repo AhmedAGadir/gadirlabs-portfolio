@@ -29,22 +29,22 @@ export async function GET(req: Request) {
     },
   })
 
-  let reviewIds = require
-    .context('../reviews', true, /\/page\.mdx$/)
+  let blogIds = require
+    .context('../blog', true, /\/page\.mdx$/)
     .keys()
     .filter((key) => key.startsWith('./'))
     .map((key) => key.slice(2).replace(/\/page\.mdx$/, ''))
 
-  for (let id of reviewIds) {
-    let url = String(new URL(`/reviews/${id}`, req.url))
+  for (let id of blogIds) {
+    let url = String(new URL(`/blog/${id}`, req.url))
     let html = await (await fetch(url)).text()
     let $ = cheerio.load(html)
 
-    let publicUrl = `${siteUrl}/reviews/${id}`
-    let review = $('review').first()
-    let title = review.find('h1').first().text()
-    let date = review.find('time').first().attr('datetime')
-    let content = review.find('[data-mdx-content]').first().html()
+    let publicUrl = `${siteUrl}/blog/${id}`
+    let blog = $('blog').first()
+    let title = blog.find('h1').first().text()
+    let date = blog.find('time').first().attr('datetime')
+    let content = blog.find('[data-mdx-content]').first().html()
 
     assert(typeof title === 'string')
     assert(typeof date === 'string')

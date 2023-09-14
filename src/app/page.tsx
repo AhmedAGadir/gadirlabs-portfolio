@@ -10,20 +10,20 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.png'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.png'
-import { type ReviewWithSlug, getAllReviews } from '@/lib/reviews'
+import { type BlogWithSlug, getAllBlogs } from '@/lib/blog'
 import { formatDate } from '@/lib/formatDate'
 import Resume from '@/components/Resume'
 import Newsletter from '@/components/Newsletter'
 
-function Review({ review }: { review: ReviewWithSlug }) {
+function Blog({ blog }: { blog: BlogWithSlug }) {
   return (
     <Card as="article">
-      <Card.Title href={`/reviews/${review.slug}`}>{review.title}</Card.Title>
-      <Card.Eyebrow as="time" dateTime={review.date} decorate>
-        {formatDate(review.date)}
+      <Card.Title href={`/blog/${blog.slug}`}>{blog.title}</Card.Title>
+      <Card.Eyebrow as="time" dateTime={blog.date} decorate>
+        {formatDate(blog.date)}
       </Card.Eyebrow>
-      <Card.Description>{review.description}</Card.Description>
-      <Card.Cta>Read full review</Card.Cta>
+      <Card.Description>{blog.description}</Card.Description>
+      <Card.Cta>Full book review</Card.Cta>
     </Card>
   )
 }
@@ -91,7 +91,7 @@ function Photos() {
 }
 
 export default async function Home() {
-  let reviews = (await getAllReviews()).slice(0, 4)
+  let blogs = (await getAllBlogs()).slice(0, 4)
 
   return (
     <>
@@ -134,8 +134,8 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {reviews.map((review) => (
-              <Review key={review.slug} review={review} />
+            {blogs.map((blog) => (
+              <Blog key={blog.slug} blog={blog} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
