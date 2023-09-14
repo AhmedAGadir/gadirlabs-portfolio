@@ -4,7 +4,7 @@ import Image, { StaticImageData } from 'next/image'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoArabyBuddy from '@/images/logos/arabybuddy.png'
-import logoBlink from '@/images/logos/blink.png'
+// import logoBlink from '@/images/logos/blink.png'
 import logoInvoise from '@/images/logos/invoise.png'
 import logoPDFGrid from '@/images/logos/pdf-grid.png'
 
@@ -21,7 +21,7 @@ const projects: {
   {
     name: 'ArabyBuddy',
     description:
-      'Learn arabic through stories and conversations. Built with React Native, GPT-4, Expo, and AWS Amplify',
+      'Learn arabic through stories and conversations. Built with  GPT-4, Next.js, Tailwind, Node.js, Express, and MongoDB.',
     link: { href: 'http://arabybuddy.com', label: 'arabybuddy.com' },
     logo: logoArabyBuddy,
   },
@@ -46,17 +46,17 @@ const projects: {
     logo: logoInvoise,
     beta: true,
   },
-  {
-    name: 'Blink',
-    description:
-      'Frontend demo chat app built with React. Styling follows the BEM methodology.',
-    link: {
-      href: 'https://blink-chat-app.netlify.app',
-      label: 'netlify.app',
-    },
-    logo: logoBlink,
-    beta: true,
-  },
+  // {
+  //   name: 'Blink',
+  //   description:
+  //     'Frontend demo chat app built with React. Styling follows the BEM methodology.',
+  //   link: {
+  //     href: 'https://blink-chat-app.netlify.app',
+  //     label: 'netlify.app',
+  //   },
+  //   logo: logoBlink,
+  //   beta: true,
+  // },
 ]
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -79,7 +79,7 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="Things I’ve made trying to put my dent in the universe."
-      intro="I'm still building this section out. If you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      intro="I'm still building out this section so bear with me. If you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
     >
       <ul
         role="list"
