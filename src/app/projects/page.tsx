@@ -30,15 +30,15 @@ const projects: {
     description:
       'Export AG Grid instances to PDF using the pdfmake library. Available in React, Angular, Vue.js and vanilla JavaScript.',
     link: {
-      href: 'https://github.com/AhmedAGadir/react-ag-grid-pdf-make',
-      label: 'github.com',
+      href: 'https://blog.ag-grid.com/exporting-ag-grid-to-pdf/',
+      label: 'blog.ag-grid.com',
     },
     logo: logoPDFGrid,
   },
   {
     name: 'Invoise',
     description:
-      'Manage invoices with CRUD operations. Built with React, Node.js, Express, and MongoDB.',
+      'Manage invoices with CRUD, sorting, filtering and multi-currency values. Built with React, Exchange-Rate API, Node.js, and MongoDB.',
     link: {
       href: 'https://github.com/AhmedAGadir/invoise-mern-crud-demo',
       label: 'github.com',
