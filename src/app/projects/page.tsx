@@ -56,7 +56,7 @@ const projects: {
       label: 'gapbio.netlify.app',
     },
     logo: logoGapBio,
-    beta: true,
+    beta: false,
   },
   // {
   //   name: 'Blink',
