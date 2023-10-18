@@ -7,6 +7,7 @@ import logoArabyBuddy from '@/images/logos/arabybuddy.png'
 // import logoBlink from '@/images/logos/blink.png'
 import logoInvoise from '@/images/logos/invoise.png'
 import logoPDFGrid from '@/images/logos/pdf-grid.png'
+import logoGapBio from '@/images/logos/gap-bio.png'
 
 const projects: {
   name: string
@@ -44,6 +45,17 @@ const projects: {
       label: 'github.com',
     },
     logo: logoInvoise,
+    beta: true,
+  },
+  {
+    name: 'Gap Bio',
+    description:
+      'Landing page for a pharmaceutical licensing firm. Built with React, Next.js, and Tailwind',
+    link: {
+      href: 'https://gapbio.netlify.app/',
+      label: 'gapbio.netlify.app',
+    },
+    logo: logoGapBio,
     beta: true,
   },
   // {
