@@ -50,7 +50,7 @@ const projects: {
   {
     name: 'Gap Bio',
     description:
-      'Landing page for a pharmaceutical licensing firm. Built with React, Next.js, and Tailwind.',
+      'Online presence for a pharmaceutical licensing firm. Built with React, Next.js, and Tailwind.',
     link: {
       href: 'https://gapbio.netlify.app/',
       label: 'gapbio.netlify.app',
