@@ -76,8 +76,8 @@ const projects: {
     description:
       "Organize a mock organization's teams and members. Built with React, Tailwind, and Node.js.",
     link: {
-      href: 'https://github.com/AhmedAGadir/sym-react-frontend',
-      label: 'github.com',
+      href: 'https://org-demo.netlify.app/',
+      label: 'org-demo.netlify.app/',
     },
     logo: logoDefault,
     beta: true,
