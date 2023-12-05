@@ -74,7 +74,7 @@ const projects: {
   {
     name: 'Organization UI',
     description:
-      "Organize a mock organization's members and teams. Built with React, Tailwind, and Node.js.",
+      "Organize a mock organization's teams and members. Built with React, Tailwind, and Node.js.",
     link: {
       href: 'https://github.com/AhmedAGadir/sym-react-frontend',
       label: 'github.com',
