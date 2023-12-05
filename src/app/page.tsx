@@ -101,7 +101,7 @@ export default async function Home() {
             Freelance software developer.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Ahmed, a React/TypeScript developer based in London. Passionate
+            I’m Ahmed, a User Interface developer based in London. Passionate
             about both reading and writing on software development. I’m
             currently building{' '}
             <Link

@@ -102,7 +102,7 @@ const resume: Array<Role> = [
   },
   {
     company: 'Coremont',
-    title: 'React/TypeScript Developer',
+    title: 'User Interface Developer',
     logo: logoCoremont,
     start: '2022',
     end: '2023',

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: 'Ahmed Gadir - freelance software developer based in London, UK',
   },
   description:
-    'I’m Ahmed, a React/TypeScript developer based in London. I’m the founder of GadirLabs, where we develop web apps that empower business owners.',
+    'I’m Ahmed, a User Interface Developer based in London. I’m the founder of GadirLabs, where we develop web apps that empower business owners.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
