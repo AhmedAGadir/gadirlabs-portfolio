@@ -8,6 +8,8 @@ import logoArabyBuddy from '@/images/logos/arabybuddy.png'
 import logoInvoise from '@/images/logos/invoise.png'
 import logoPDFGrid from '@/images/logos/pdf-grid.png'
 import logoGapBio from '@/images/logos/gap-bio.png'
+import logoAzza from '@/images/logos/azza-school.png'
+import logoDefault from '@/images/logos/glabs.png'
 
 const projects: {
   name: string
@@ -57,6 +59,28 @@ const projects: {
     },
     logo: logoGapBio,
     beta: false,
+  },
+  {
+    name: 'Azza School',
+    description:
+      'Online presence for a local charity. Features internationalization. Built with React, Next.js and Tailwind.',
+    link: {
+      href: 'https://www.azzaschool.org/',
+      label: 'azzaschool.org',
+    },
+    logo: logoAzza,
+    beta: false,
+  },
+  {
+    name: 'Organization UI',
+    description:
+      "Organize an sample organization's members and teams. Built with React, Tailwind, and Node.js.",
+    link: {
+      href: 'https://github.com/AhmedAGadir/sym-react-frontend',
+      label: 'github.com',
+    },
+    logo: logoDefault,
+    beta: true,
   },
   // {
   //   name: 'Blink',
