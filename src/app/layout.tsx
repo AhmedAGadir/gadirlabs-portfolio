@@ -8,10 +8,10 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - Ahmed Gadir',
-    default: 'Ahmed Gadir - freelance software developer based in London, UK',
+    default: 'Ahmed Gadir - Software Developer based in London, UK',
   },
   description:
-    'I’m Ahmed, a User Interface Developer based in London. I’m the founder of GadirLabs, where we develop web apps that empower business owners.',
+    'I’m Ahmed, a Software Developer based in London. Passionate about building accessible, performant, and intuitive software.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
