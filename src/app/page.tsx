@@ -111,7 +111,7 @@ export default async function Home() {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Ahmed, a Software Developer from London. Passionate about
-            building accessible, performant, and intuitive software. I’m
+            building accessible, performant, and intuitive applications. I’m
             currently building{' '}
             <Link
               href="https://arabybuddy.com"
