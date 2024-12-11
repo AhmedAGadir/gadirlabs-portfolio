@@ -99,6 +99,7 @@ export default async function Home() {
   // NEETCODE SYSTEM DESIGN
   // CODECADEMY BACKEND
   // UDEMY NODEJS
+  // DATABASE DESIGN FOR MERE MORTALS
 
   let blogs = (await getAllBlogs()).slice(0, 4)
 

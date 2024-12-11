@@ -7,6 +7,7 @@ import { Button } from '@/components/Button'
 import logoAGGrid from '@/images/logos/ag-grid.png'
 import logoArabyBuddy from '@/images/logos/arabybuddy.png'
 import logoCoremont from '@/images/logos/coremont.png'
+import logoGR from '@/images/logos/global-relay.png'
 
 function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -101,15 +102,25 @@ const resume: Array<Role> = [
     },
   },
   {
+    company: 'Global Relay',
+    title: 'Senior Software Developer',
+    logo: logoGR,
+    start: '2024',
+    end: {
+      label: 'Present',
+      dateTime: new Date().getFullYear().toString(),
+    },
+  },
+  {
     company: 'Coremont',
-    title: 'User Interface Developer',
+    title: 'Intermediate Frontend Developer',
     logo: logoCoremont,
     start: '2022',
     end: '2023',
   },
   {
     company: 'AG Grid',
-    title: 'Frontend Developer',
+    title: 'Junior Frontend Developer',
     logo: logoAGGrid,
     start: '2018',
     end: '2021',
