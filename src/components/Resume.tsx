@@ -101,19 +101,19 @@ const resume: Array<Role> = [
       dateTime: new Date().getFullYear().toString(),
     },
   },
-  {
-    company: 'Global Relay',
-    title: 'Senior Software Developer',
-    logo: logoGR,
-    start: '2024',
-    end: {
-      label: 'Present',
-      dateTime: new Date().getFullYear().toString(),
-    },
-  },
+  // {
+  //   company: 'Global Relay',
+  //   title: 'Senior Software Developer',
+  //   logo: logoGR,
+  //   start: '2024',
+  //   end: {
+  //     label: 'Present',
+  //     dateTime: new Date().getFullYear().toString(),
+  //   },
+  // },
   {
     company: 'Coremont',
-    title: 'Intermediate Frontend Developer',
+    title: 'Intermediate FE Developer',
     logo: logoCoremont,
     start: '2022',
     end: '2023',
