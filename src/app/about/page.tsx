@@ -128,16 +128,16 @@ export default function About() {
             </p>
 
             <p>
-              In addition to freelance work, I've built websites for clients
-              using Shopify and Squarespace, creating custom solutions. I often
-              recommend website builders for their ease of use and maintenance.
-              My expertise in UX and design principles ensures websites are
-              performant, accessible and visually appealing.
+              In addition to freelance work, I&apos;ve built websites for
+              clients using Shopify and Squarespace, creating custom solutions.
+              I often recommend website builders for their ease of use and
+              maintenance. My expertise in UX and design principles ensures
+              websites are performant, accessible and visually appealing.
             </p>
 
             <p>
               Fast forward today, I work as a Senior Developer for a large Data
-              Security company. In my free time I've taken an interest in
+              Security company. In my free time &apos;ve taken an interest in
               building full-stack applications and learning about the entire
               product development lifecycle. My goal now is to build great
               products that solve real and interesting problems.
