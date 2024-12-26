@@ -74,12 +74,12 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I'm a self-taught developer with {new Date().getFullYear() - 2019}{' '}
-              years of experience designing and building software. My journey
-              began as a Junior Frontend Developer at AG-Grid, a startup behind
-              a popular data grid library. During my time there, I provided
-              developer support across major frontend frameworks and authored
-              several{' '}
+              I&apos;m a self-taught developer with{' '}
+              {new Date().getFullYear() - 2019} years of experience designing
+              and building software. My journey began as a Junior Frontend
+              Developer at AG-Grid, a startup behind a popular data grid
+              library. During my time there, I provided developer support across
+              major frontend frameworks and authored several{' '}
               <Link
                 href="https://blog.ag-grid.com/author/ahmed/"
                 arial-label="AG Grid blog posts"
@@ -161,7 +161,7 @@ export default function About() {
                 </strong>{' '}
                 And you can change it, you can influence it, you can build your
                 own things that other people can use. Once you learn that,
-                you’ll never be the same again.
+                you&apos;ll never be the same again.
               </blockquote>
               <figcaption>
                 <div className="mt-1 divide-x-2 divide-gray-500 dark:divide-gray-700">
