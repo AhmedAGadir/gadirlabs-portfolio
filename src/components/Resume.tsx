@@ -95,22 +95,22 @@ const resume: Array<Role> = [
     company: 'ArabyBuddy',
     title: 'Founder',
     logo: logoArabyBuddy,
-    start: '2023',
+    start: '2024',
     end: {
       label: 'Present',
       dateTime: new Date().getFullYear().toString(),
     },
   },
-  // {
-  //   company: 'Global Relay',
-  //   title: 'Senior Software Developer',
-  //   logo: logoGR,
-  //   start: '2024',
-  //   end: {
-  //     label: 'Present',
-  //     dateTime: new Date().getFullYear().toString(),
-  //   },
-  // },
+  {
+    company: 'Global Relay',
+    title: 'Senior Software Developer',
+    logo: logoGR,
+    start: '2024',
+    end: {
+      label: 'Present',
+      dateTime: new Date().getFullYear().toString(),
+    },
+  },
   {
     company: 'Coremont',
     title: 'Intermediate FE Developer',

@@ -1,0 +1,103 @@
+import { BlogLayout } from '@/components/BlogLayout'
+import Image from 'next/image'
+import dontMakeMeThink from './dont-make-me-think.webp'
+
+export const blog = {
+  author: 'Ahmed Gadir',
+  date: '2024-12-25',
+  title: 'Reflections in Code and Entrepreneurship',
+  description:
+    'Lessons Learned Over Two Years of Coding and Entrepreneurship + Recommended Resources.',
+}
+
+export const metadata = {
+  title: blog.title,
+  description: blog.description,
+}
+
+export default (props) => <BlogLayout blog={blog} {...props} />
+
+# Brain Dump: Code, Entrepreneurship and More
+
+Here are some ramblings about what I’ve learned and encountered over the past two years working as a Software Developer and starting a few failed businesses. I've also included a list of recommended resources.
+
+## Lessons from Starting a Clothing Brand
+
+In 2022, while becoming complacent in my career, I was inundated with get-rich-quick schemes on social media. Seeking an easier way to make more money, I decided to start a business. The first project I deeply invested in was an Arabic-themed sportswear brand. Looking back, it was a terrible idea, but it taught me valuable lessons:
+
+1. If it's hard work to explain your product's value, it's probably not a good product.
+2. If you can't build the key aspects of your product yourself, you're at the mercy of others (even if you're paying them).
+3. Sticky products (those with repeat customers) are better than one-time purchases.
+4. Any idea can work given enough time and effort, but some simply aren't worth pursuing.
+
+I've since circled back to writing software and decided to ignore all the noise online. Anything worth doing is hard work, and setting that expectation that whatever you're pursuing is going to be hard anchors you down and prevents fleeting fads from pulling you off course.
+
+## Not Knowing How to do Something Should Never Be a Barrier
+
+While building my current project, [ArabyBuddy](https://arabybuddy.com), I’ve faced choices between launching quickly with familiar tools or taking detours to learn the right tools for the job. Contrary to common advice, I’ve found immense value in the latter approach. Taking the time to learn and use the best tools has allowed me to build a better product. Here are some examples:
+
+- **Learning Figma**  
+  A weekend spent learning Figma has allowed me to conceptualize designs 5–10x faster. The key takeaway: If you don’t need to write code to test your ideas, you’ll be less precious about discarding bad ones.
+
+- **Learning Relational Databases**
+  Learning to organize and work with large amounts of data makes you smarter. Front-loading the effort and designing an application's database before writing any code means having better data integrity and consistency in your DB, as well as clearer application requirements.
+
+- **Mobile Development**
+  ArabyBuddy was originally going to be a web app. Technologies like Nextjs and Vercel allow for rapid prototyping and quickly testing a product. However the nature of the product, a language learning app, meant that a mobile app was a better fit. It means more learning and a longer time to launch, but it's the right choice for the product.
+
+In all of these cases, taking what looked like the long way has resulted in a better product and time saved down the line.
+
+My opinion is that, unless you are a seasoned vet, don't let speed be the deciding factor on your tech stack. Choose the right tools for the job, even if it means learning something new.
+
+## All You Had to Do Was Ask
+
+Not to sound mystical, but setting a clear goal aligns the world around you to make it happen. Since committing to building software products, I’ve received incredible support:
+
+- A senior architect at my current job now mentors me after I asked for just 15 minutes of his time to discuss what I should learn next.
+- Some subject-matter experts are collaborating with me on my current project after I reached out to them.
+- Experienced and talented developers I work with frequently recommend the exact resources I need to level up.
+
+These experiences reinforce a simple truth: people are willing to help if simply ask.
+
+## Recommended Resources
+
+### Business Insights
+
+#### Creating Great Products
+
+- **Book:** [_100M Offers_](https://www.goodreads.com/book/show/58612786-100m-offers) by Alex Hormozi
+- **Videos:** Steve Jobs' old interviews on YouTube
+- **Book:** [_Anything You Want_](https://www.goodreads.com/book/show/11878168-anything-you-want?from_search=true&from_srp=true&qid=49xIFbV5SQ&rank=1) by Derek Sivers
+- **Channel:** [Y-Combinator's YouTube Channel](https://www.youtube.com/@ycombinator)
+
+#### Advertising
+
+- **Book:** [_100M Leads_](https://www.goodreads.com/book/show/196239284-100m-leads?from_search=true&from_srp=true&qid=1UvoPAopXS&rank=1) by Alex Hormozi
+
+#### Validating Business Ideas
+
+- **Book:** [_The Mom Test_](https://www.goodreads.com/book/show/52283963-the-mom-test?from_search=true&from_srp=true&qid=R7vLHJ3iYs&rank=1) by Rob Fitzpatrick
+
+---
+
+### Software Development Resources
+
+#### UX Design
+
+- **Book:** [_Refactoring UI_](https://www.refactoringui.com/) by Adam Wathan & Steve Schoger
+- **Book:** [_Don't Make Me Think_](https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited) by Steve Krug
+
+#### Relational Databases
+
+- **Book:** [_Database Design for Mere Mortals_](https://www.goodreads.com/book/show/150062.Database_Design_for_Mere_Mortals?ref=nav_sb_ss_1_32) by Michael J. Hernandez
+- **Course:** [freeCodeCamp's Relational Databases Course](https://www.freecodecamp.org/learn/relational-database/)
+- **Tutorial:** [Neon's PostgreSQL Tutorial](https://neon.tech/postgresql/postgresql-tutorial/)
+
+#### System Design
+
+- **Course:** [Neetcode's System Design Course](https://neetcode.io/courses/system-design-for-beginners/1)
+- **Channel:** [ByteByteGo's YouTube Channel](https://www.youtube.com/ByteByteGo)
+
+#### Computer Architecture
+
+- **Book:** [The Elements of Computing Systems](https://www.goodreads.com/book/show/910789.The_Elements_Of_Computing_Systems?ref=nav_sb_ss_1_26) by Noam Nisan & Shimon Schocken

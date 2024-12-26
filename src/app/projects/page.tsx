@@ -24,7 +24,7 @@ const projects: {
   {
     name: 'ArabyBuddy',
     description:
-      'Learn arabic through stories and conversations. Built with  GPT-4, Next.js, Tailwind, Node.js, Express, and MongoDB.',
+      'Speak Arabic Fluently. Built with GPT-4, React Native, PostgreSQL and Blender.',
     link: { href: 'http://arabybuddy.com', label: 'arabybuddy.com' },
     logo: logoArabyBuddy,
   },

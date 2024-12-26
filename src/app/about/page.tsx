@@ -74,10 +74,12 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              My career kicked off 5 years ago at AG Grid, a startup that gave
-              me the opportunity to master frontend technologies like React,
-              Angular, and Vue. I was responsible for developing a diverse range
-              of web applications, and I shared my expertise through various{' '}
+              I'm a self-taught developer with {new Date().getFullYear() - 2019}{' '}
+              years of experience designing and building software. My journey
+              began as a Junior Frontend Developer at AG-Grid, a startup behind
+              a popular data grid library. During my time there, I provided
+              developer support across major frontend frameworks and authored
+              several{' '}
               <Link
                 href="https://blog.ag-grid.com/author/ahmed/"
                 arial-label="AG Grid blog posts"
@@ -86,14 +88,8 @@ export default function About() {
               >
                 blog posts
               </Link>
-              .
-            </p>
-
-            <p>
-              Three years into my journey, I took on new challenges at Coremont,
-              a cloud-based financial portfolio platform. It was here that I
-              refined my skills in component library construction and deepened
-              my knowledge of frontend architectures and patterns.
+              . I also traveled to the US, Spain and the Netherlands to showcase
+              the company&apos;s product at developer conferences.
             </p>
 
             <figure className="mx-auto">
@@ -123,17 +119,58 @@ export default function About() {
             </figure>
 
             <p>
-              Having been privileged to collaborate with several accomplished
-              companies and individuals, I &apos;ve been part of teams that have
-              brought dozens of web applications to life.
+              My next step was Coremont, a cloud-based financial portfolio
+              platform initially developed at Brevan Howard, a renowned hedge
+              fund. This fast-paced environment taught me how to build
+              enterprise-level applications. My accomplishments included
+              developing a component library and deepening my knowledge of
+              frontend architectures and patterns.
             </p>
 
             <p>
-              Fast forward today, my focus is solely on product development. If
-              an idea strikes or if somebody wants to work on an interesting
-              project, I act on it immediately, acquiring any necessary skills
-              along the way to bring it to fruition.
+              In addition to freelance work, I've built websites for clients
+              using Shopify and Squarespace, creating custom solutions. I often
+              recommend website builders for their ease of use and maintenance.
+              My expertise in UX and design principles ensures websites are
+              performant, accessible and visually appealing.
             </p>
+
+            <p>
+              Fast forward today, I work as a Senior Developer for a large Data
+              Security company. In my free time I've taken an interest in
+              building full-stack applications and learning about the entire
+              product development lifecycle. My goal now is to build great
+              products that solve real and interesting problems.
+            </p>
+
+            <figure className="mx-auto">
+              <blockquote className="text-xl font-semibold italic text-gray-900 dark:text-white">
+                <svg
+                  className="mb-2 h-8 w-8 text-gray-400 dark:text-gray-600"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 18 14"
+                >
+                  <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+                </svg>
+                Life can be much broader once you discover one simple fact:{' '}
+                <strong>
+                  Everything around you that you call life was made up by people
+                  that were no smarter than you.
+                </strong>{' '}
+                And you can change it, you can influence it, you can build your
+                own things that other people can use. Once you learn that,
+                you’ll never be the same again.
+              </blockquote>
+              <figcaption>
+                <div className="mt-1 divide-x-2 divide-gray-500 dark:divide-gray-700">
+                  <cite className="pr-3 font-medium text-gray-900 dark:text-white">
+                    Steve Jobs
+                  </cite>
+                </div>
+              </figcaption>
+            </figure>
           </div>
         </div>
         <div className="lg:pl-20">

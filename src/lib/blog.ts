@@ -5,6 +5,7 @@ interface Blog {
   description: string
   author: string
   date: string
+  external?: boolean
 }
 
 export interface BlogWithSlug extends Blog {

@@ -23,7 +23,7 @@ function Blog({ blog }: { blog: BlogWithSlug }) {
         {formatDate(blog.date)}
       </Card.Eyebrow>
       <Card.Description>{blog.description}</Card.Description>
-      <Card.Cta>Full book review</Card.Cta>
+      <Card.Cta>Read blog</Card.Cta>
     </Card>
   )
 }
