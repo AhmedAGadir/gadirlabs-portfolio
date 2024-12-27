@@ -1,0 +1,683 @@
+import { BlogLayout } from '@/components/BlogLayout'
+import Image from 'next/image'
+import nand2Tetris from './nand2tetris.jpeg'
+import computerArchitecture from './computer-architecture.png'
+import vonNeumannArchitecture from './von-neumann-architecture.png'
+import compiler from './compiler.png'
+
+export const blog = {
+  author: 'Ahmed Gadir',
+  date: '2024-12-26',
+  title: 'Computer Architecture Notes',
+  description: 'My notes from the Nand2Tetris book.',
+}
+
+export const metadata = {
+  title: blog.title,
+  description: blog.description,
+}
+
+export default (props) => <BlogLayout blog={blog} {...props} />
+
+# How Computers Work
+
+<Image src={computerArchitecture} alt="Computer Architecture" width={400} />
+
+## **Chapter 1 - Logic Gates**
+
+Logic gates are the elementary building blocks of all digital devices.
+
+The most primitive logic gate is the **NAND gate**, which is the opposite of an AND gate:  
+**NAND operation:** If `a = b = 1`, then `out = 0`; else `out = 1`.
+
+All other primitive gates can be built from NAND gates (**AND**, **NOT**, and **OR**).  
+Furthermore, all Boolean functions can be expressed using AND, NOT, and OR gates.  
+This means **all composite gates can be built from NAND gates**.
+
+### **Basic Gates**
+
+- **NAND**:  
+  If `a = b = 1`, then `out = 0`; else `out = 1`.
+- **NOT**:  
+  If `in = 0`, then `out = 1`; else `out = 0`.
+- **AND**:  
+  If `a = b = 1`, then `out = 1`; else `out = 0`.
+- **OR**:  
+  If `a = b = 0`, then `out = 0`; else `out = 1`.
+- **XOR**:  
+  If `a ≠ b`, then `out = 1`; else `out = 0`.
+- **Multiplexor** (3 inputs, including 1 selection bit):  
+  If `sel = 0`, then `out = a`; else `out = b`.
+- **Demultiplexor** (opposite of Multiplexor - single input, output determined by selection bit):  
+  If `sel = 0`, then `{ a = in, b = 0 }`; else `{ a = 0, b = in }`.
+
+### **Multi-Bit Versions**
+
+A **multi-bit array** is called a **bus**. Multi-bit versions of the basic gates include:
+
+- **Multi-Bit NOT**:  
+  Applies the NOT operation to each bit in a multi-bit input, inverting every bit. For an n-bit input bus, it produces an n-bit output bus.
+- **Multi-Bit AND**:  
+  Performs the AND operation on corresponding bits of two n-bit input buses. Each bit in the output bus is `1` only if the corresponding bits in both input buses are `1`.
+- **Multi-Bit OR**:  
+  Performs the OR operation on corresponding bits of two n-bit input buses. Each bit in the output bus is `1` if at least one of the corresponding input bits is `1`.
+- **Multi-Bit Multiplexor**:  
+  Selects between two n-bit input buses (`a` and `b`) based on a single selection bit (`sel`).  
+  If `sel = 0`, the output is `a`; if `sel = 1`, the output is `b`.
+- **Multi-Way OR**:  
+  Takes multiple single-bit inputs (e.g., `a`, `b`, `c`, etc.) and outputs `1` if at least one of the inputs is `1`; otherwise, it outputs `0`.  
+  Extends OR logic to more than two inputs.
+- **Multi-Way Multiplexor**:  
+  Selects one of several n-bit input buses based on a set of selection bits. For example, if there are `2^m` inputs, an `m-bit` selector chooses which input bus to output.
+- **Multi-Way Demultiplexor**:  
+  Takes a single n-bit input and directs it to one of several output buses based on a set of selection bits. Only one output bus receives the input value, while all others are set to zero.
+
+### **Additional Notes**
+
+- The efficiency of composite gate structures is not discussed in this book.
+- Physical implementation of logic gates (e.g., transistor types and physical space) is the domain of electrical engineering.
+
+---
+
+## ** Chapter 2 - Building the ALU **
+
+The ALU - arithmetic logic unit is the centerpiece chip that executes all arithmetic and logical operations performed by the computer.
+
+Binary Representation is base 2 instead of base 10, so 10011 = 1*2^0 + 1*2^1 + 0*2^2 + 0*2^3 + 1\*2^4 = 19
+
+10011 is only 5 bits, but in a 32-bit machine it would be stored as 00000000000000000000000000010011.
+
+Binary Addition
+ - summing 2 n-bit numbers can be built from logic gates that sum 3 bits - pair of bits + carry bit.
+ - to subtract or add negative numbers we use 2's compliment method
+ - For 2's compliment we split all of our available space into 2 subsets - one for positive numbers and one for negative numbers
+ - the shortcut to get a negative number from a positiv one is to flip all the bits then add 1
+ - when adding x + (-x), we get result=0 (with an extra 1 carry over bit that is ignored)
+
+Chips built this chapter:
+
+- Half-adder - adds two bits
+- Full-adder - adds three bits
+- Multi-bit Adder / Adder - adds two n-bit numbers
+- Incrementer - adds 1 to an n-bit number
+
+The ALU in Nand2Tetris is a composite chip with 6 control and 18 different possible operations. For inputs x and y, we get:
+0, 1, -1, x, y, !x, !y, -x, -y, x+1, y+1, x-1, y-1, x+y, x-y, y-x, x&y, x|y
+
+---
+
+## **Chapter 3 - Sequential Logic**
+
+This chapter introduces the concept of **time progression** in computers. To maintain state in a machine, it is necessary to store and recall values over time.
+
+### **Data Flip-Flop (DFF)**
+
+The **Data Flip-Flop (DFF)** is the elementary sequential element, which can be built from NAND gates. It allows values to persist over time.
+
+For **Registers**, the state is defined as:  
+`out(t) = in(t-1)`  
+This means the output at time `t` reflects the input at time `t-1`. Registers are implemented by feeding the output of a DFF back into its input.
+
+- A **load bit** is used to control when the register updates to a new value.
+- Registers are composed of multiple DFFs working together.
+
+### **Random Access Memory (RAM)**
+
+**RAM** is constructed by stacking multiple registers together. It is called **random access** because it allows constant-time access to any stored value, regardless of its location in memory.
+
+### **Counters**
+
+**Counters** are sequential chips that increment or decrement their stored value over time. Their state is defined as:  
+`out(t) = out(t-1) + c`  
+Counters also include logic for resetting and loading new values.
+
+### **Clock Cycle Synchronization**
+
+To synchronize sequential chips, the computer's **clock cycle** must be longer than the time it takes for a bit to travel the furthest distance between chips.  
+This ensures that every chip has the most up-to-date values by the start of the next cycle.
+
+### **Hack Computer - Read vs. Write Operations**
+
+- **Read Operations**: These are **combinational** and **instantaneous**, independent of the computer's clock cycle.
+- **Write Operations**: These are **sequential** and commit new values only at the start of the next clock cycle.
+
+---
+
+## **Chapter 4 - Machine Language**
+
+**Machine language** is low-level code that enables programmers to manipulate memory using a processor and a set of registers.
+
+### **CPU Capabilities**
+
+The CPU can perform three main types of operations:
+
+1. **Arithmetic and Logic Operations**:  
+   Basic operations like addition, subtraction, logical AND/OR, and comparisons.
+2. **Memory Access Operations**:  
+   Reading from and writing to memory.
+3. **Control Operations**:  
+   Implementing program flow with loops, conditional logic, and subroutine calls.
+
+### **Memory Structure**
+
+Memory is divided into two main components:
+
+1. **Instruction Memory (ROM)**:  
+   Stores program instructions that are preloaded into a **read-only memory chip**.
+2. **Data Memory (RAM)**:  
+   Stores program data that can be read and updated dynamically.
+
+> **Note:** When we refer to "Memory," it does not include the additional registers within the CPU.
+
+Both **RAM** and **ROM** can be thought of as stacks of registers, each storing binary values.  
+In addition, the CPU contains a small set of **registers** for high-speed access and temporary storage.
+
+### **Binary Representation in Machine Language**
+
+Machine language encodes operations as binary instructions. For example:  
+`101000011000011001`
+
+- The first few bits (e.g., the first 4 bits) represent the **operation** (e.g., addition, subtraction).
+- The remaining bits represent the **operands** (e.g., registers or memory addresses).
+
+For instance, the binary `101000011000011001` might correspond to a symbolic instruction like:  
+`set R3 to R1 + R9`
+
+This symbolic representation of machine code is called **assembly**.
+
+---
+
+## **Chapter 5 - Computer Architecture**
+
+The **stored program concept** is the foundation of modern computing. In this model:
+
+- Program instructions are stored in memory alongside program data, rather than being hardcoded into hardware.
+- This design enables computers to be versatile, as different programs can run on the same hardware platform, which only needs a small, fixed set of capabilities.
+
+### **Von Neumann Architecture**
+
+<Image
+  src={vonNeumannArchitecture}
+  alt="Von Neumann Architecture"
+  width={600}
+/>
+
+In the **Von Neumann architecture**, memory stores both **program data** and **program instructions**. The CPU executes the currently running program by performing the following tasks:
+
+### **1. Interacting with Memory**
+
+- **ROM (Read-Only Memory):** Fetching program instructions.
+- **RAM (Random Access Memory):** Reading/writing operations to store and update program data.
+
+### **2. Executing Instructions**
+
+The CPU uses:
+
+- **ALU (Arithmetic Logic Unit):** Performs arithmetic, logic, and Boolean operations.
+- **Registers:** Store variables and provide quick access to data.
+- **Control Unit:** Decodes instructions and manages program flow, including loops, conditional jumps, and subroutine (function) calls.
+
+### **3. Interfacing with I/O Devices**
+
+- **Input Devices (e.g., keyboards):** Continuously update the state of specific memory-mapped locations.
+- **Output Devices (e.g., screens):** Continuously reflect the state of their corresponding memory-mapped locations.
+
+### **Additional Notes**
+
+1. **Graphics in Real Computers:**  
+   CPUs send high-level instructions to graphics cards, which handle complex rendering tasks, such as drawing shapes and managing individual pixels.
+2. **Color Representation:**  
+   Each pixel's color is represented using multiple bits, typically with the **RGB model**.
+
+3. **Hardware Optimization:**  
+   Modern hardware focuses heavily on optimizations like:
+
+   - Memory caches
+   - Faster I/O device access
+   - Pipelining and parallelism
+   - Instruction prefetching
+
+4. **Disk vs. RAM:**
+   - The term **disk** refers to external storage devices like HDDs or SSDs.
+   - **RAM** is volatile memory, meaning its contents are lost when the computer is powered off, while data on a disk persists.
+
+---
+
+## **Chapter 6 - Assembler**
+
+An **assembler** translates assembly code—a symbolic representation of machine code—into machine code that can run directly on hardware.
+
+### **How Assemblers Work**
+
+Assemblers typically perform the translation in **two passes**:
+
+1. **First Pass:**
+
+   - The assembler generates a **symbol table** that maps all symbols (such as variables and labels) to their corresponding physical memory addresses.
+   - This mapping ensures that symbols in the assembly code can be correctly replaced with actual memory locations in the machine code.
+
+   > **Symbol Table:** Often implemented as a **hash table** for efficient lookups.
+
+2. **Second Pass:**
+   - The assembler replaces all symbols in the assembly code with the memory addresses found in the symbol table.
+   - The final output is machine-readable code ready for execution on the hardware.
+
+### **Embedding Assembly in High-Level Code**
+
+Some high-level programming languages, such as **C**, allow programmers to embed assembly code segments directly within their source code. This feature provides:
+
+- **Performance Benefits:**  
+  Developers can write highly optimized assembly instructions for critical tasks.
+- **Hardware Access:**  
+  Embedding assembly enables low-level control over a computer's hardware, which may not be possible using only high-level abstractions.
+
+---
+
+## **Chapters 7 & 8 - Virtual Machine**
+
+High-level programming languages are compiled into an **intermediate language** before being translated into assembly code. This intermediate language is known as **VM language** and runs on a **Virtual Machine (VM)**—a software construct rather than a physical machine.
+
+### **Benefits of the Virtual Machine Paradigm**
+
+1. **Hardware Independence:**  
+   High-level languages do not need separate compilation implementations for each hardware platform. Instead, they compile to a common VM language that can run on various devices.
+
+2. **Software Compatibility:**  
+   Digital devices only need to support the VM language, enabling them to run a wide range of software without additional effort.
+
+### **Compilation Workflow**
+
+The translation process from high-level code to machine-executable code follows these steps:
+
+1. **High-level programming language** → (Compiler) → **VM Code**
+2. **VM Code** → (VM Translator) → **Assembly Code**
+3. **Assembly Code** → (Assembler) → **Machine Code**
+4. **Machine Code** runs directly on the **hardware (CPU)**.
+
+> **Examples:**
+>
+> - **Java** uses this model: It compiles into **Bytecode**, which runs on the **JVM (Java Virtual Machine)**.
+> - **.NET** has a similar implementation.
+
+### **Virtual Machine in Nand2Tetris**
+
+The Nand2Tetris VM is based on a **Stack Architecture (LIFO)** and supports four types of operations:
+
+1. **Arithmetic and Logic Commands:**  
+   Pops items off the stack, performs operations, and pushes the result back onto the stack.
+
+2. **Memory Access Commands:**  
+   Transfers data between the stack and virtual memory segments.
+
+3. **Program Flow Commands:**  
+   Includes **conditional** and **unconditional branching operations**.
+
+   - Conditional jumps evaluate the stack’s topmost element and proceed only if the value is not zero.
+   - Used to implement loops, conditional statements, and subroutine calls.
+
+4. **Subroutine Calling:**  
+   Manages function calls and returns:
+   - Function arguments are pushed onto the stack.
+   - The function executes, and the result is placed on top of the stack.
+
+### **VM Commands and Memory Segments**
+
+#### **Arithmetic and Logical Commands**
+
+- `add`, `sub`, `neg`, `eq`, `gt`, `lt`, `and`, `or`, `not`.
+
+#### **Memory Segments**
+
+Each VM function interacts with the following memory segments:
+
+- **argument**, **local**, **static**, **constant**, **this**, **that**, **pointer**, and **temp**.
+
+When a function is called, it gets its own virtual memory segment for:
+
+- **argument**, **local**, **this**, **that**, and **pointer**.
+
+The segments **static**, **temp**, and **constant** are shared by all functions.
+
+### **Stack Frame and Heap**
+
+- **Stack Frame:**
+
+  - Each function call creates a stack frame that contains:
+    - Local variables.
+    - Arguments.
+    - Return address.
+    - Pointers (e.g., `this` and `that`).
+  - The stack frame isolates the function’s execution context. When the function completes, its stack frame is removed, and the previous context is restored.
+
+- **Heap:**
+  - The heap is a memory segment used to store object and array data.
+  - The VM manages **two data structures**: the **stack** and the **heap**.
+
+### **Memory Mapping in the VM**
+
+The VM maps memory segments to predefined RAM addresses:
+
+| RAM Address Range | Purpose                                                                                             |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| `0–15`            | Virtual registers for stack pointer and pointers to local, argument, this, that, and temp segments. |
+| `16–255`          | Static variables.                                                                                   |
+| `256–2047`        | Stack.                                                                                              |
+| `2048–16383`      | Heap.                                                                                               |
+| `16384–24575`     | Memory-mapped I/O.                                                                                  |
+| `24576–32767`     | Unused memory space.                                                                                |
+
+---
+
+## **Chapter 9 - High-Level Programming Language**
+
+**Jack** is an **object-oriented programming language** that also supports procedural programming. It serves as a high-level language in the Nand2Tetris project.
+
+### **Features of Jack**
+
+1. **Primitive Data Types:**
+
+   - `int`
+   - `char`
+   - `boolean`
+
+2. **Object Types:**
+   - `String`
+   - `Array`
+   - User-defined objects (**Classes**).
+
+### **Memory Allocation in Jack**
+
+1. **Primitive Data Types:**
+
+   - Memory is allocated **immediately upon initialization**.
+
+2. **Object Types:**
+   - When an object is initialized, only a **pointer** is allocated.
+   - Full memory allocation occurs only when the object's **constructor** is called.
+
+### **Jack Standard Library**
+
+The Jack Operating System (OS) provides a standard library that includes additional object types and utility functions. These are covered in detail in **Chapter 12**.
+
+---
+
+### **Chapters 10 & 11 - Compiling High-Level Programming Languages into VM Code**
+
+**Compilation** is the process of transforming source code written in a high-level programming language (e.g., Jack) into **VM code**. The virtual machine then executes the compiled VM code, translating it into machine code at runtime.
+
+### **Stages of Compilation**
+
+### **1. Syntax Analysis**
+
+This stage converts raw source code into a structured representation:
+
+- **a) Tokenizing:**  
+  Groups input characters into **language atoms** (tokens), such as keywords, identifiers, symbols, etc.
+
+- **b) Parsing:**  
+  Arranges the tokens into a hierarchical **XML tree** based on the input language's grammar rules.  
+  Example: For an expression like `a + (b * c)`, the tree ensures `b * c` is evaluated before `a + result`.
+
+- **Syntax Errors:**  
+  The compiler can detect and report syntax errors during this stage.
+
+### **2. Code Generation**
+
+This stage transforms the parsed XML tree into **VM code**, a simpler, stack-based intermediate language.
+
+- **a) Data Translation**  
+  The compiler first creates a **symbol table** to manage variables. The symbol table tracks:
+  - **Type**: The data type of the variable (`int`, `boolean`, etc.).
+  - **Kind**: The variable's scope and storage (e.g., local, static, argument, or field).
+  - **Scope**: Whether the variable is available globally or within a function.
+  - **Index**: The order of the variable's declaration.
+
+**Memory Management for Language Constructs at Runtime:**
+
+1. **Primitive Variables (`int`, `boolean`, `char`):**
+
+   - **Local Variables:** Stored in the **local segment** of the VM's memory. Scope is managed using lists of hash tables (which can be implemented as arrays of linked lists).
+   - **Static Variables:** Stored in the **static segment**, shared across all instances.
+   - **Field Variables:** Stored in the **this segment**. Each object instance has its own copy of these variables.
+   - **Argument Variables:** Stored in the **argument segment**. These are placed on the stack as part of a function's stack frame.
+
+2. **Arrays:**
+
+   - The VM allocates memory in the **heap** and returns a pointer to the base address of the memory segment.
+   - Example: `arr[3] = 10` translates to `*(base_address + 3) = 10`.
+
+3. **Objects:**
+   - Like arrays, object instances are stored in consecutive memory locations.
+   - Methods are not duplicated for each object; instead, they are shared, with the **`this` keyword** passed as the first parameter during method calls. This gives the impression that each object encapsulates its own methods.
+
+- **b) Command Translation**
+  - **Expressions:** Translated into VM stack operations, such as **push** and **pop**.
+  - **Flow Control:** Loops and conditional logic are translated into VM code that evaluates boolean expressions and conditionally jumps to labels.
+
+### **Output of Compilation**
+
+Each Jack file (`xxx.jack`) is compiled into a corresponding VM file (`xxx.vm`).  
+OS files written in Jack are also compiled into VM files (`yyy.vm`).
+
+At this stage, all files have unrestricted access to each other. More sophisticated systems implement privilege levels to restrict application access to OS code.
+
+<Image src={compiler} alt="Compiler" width={800} />
+
+---
+
+### **Chapter 12 - The Operating System**
+
+The **Jack Operating System (OS)** provides a **standard library** that simplifies interaction between application developers and hardware. This abstraction makes it easier to perform tasks like I/O handling, memory management, and program control.
+
+### **APIs Provided by the Jack OS**
+
+The OS offers APIs for:
+
+- **Interacting with I/O Devices:**  
+  Includes devices like the keyboard and screen.
+
+- **Starting/Stopping Programs:**  
+  Functions for managing the lifecycle of applications.
+
+- **Memory Management:**  
+  Dynamically allocates and deallocates memory for data.
+
+### **Data Types and Functions Implemented by the OS**
+
+The OS includes several built-in data types and utility functions:
+
+1. **String:**
+
+   - Strings are implemented as arrays that map characters to their **ASCII** values, which are stored as binary numbers.
+
+2. **Number Operations:**
+
+   - **Addition/Subtraction:** Handled by the ALU (hardware).
+   - **Multiplication/Division:** Implemented at the software level within the OS but can also be hardware-supported.
+
+3. **Array:**
+
+   - Provides tools for creating and manipulating arrays.
+
+4. **Output:**
+
+   - Functions to display text on the screen.
+
+5. **Screen:**
+
+   - Utilities for drawing graphics (e.g., circles, lines).
+
+6. **Keyboard:**
+
+   - API for reading input from the keyboard.
+
+7. **Memory Management:**
+
+   - Functions like `malloc()` and `dealloc()` for dynamic memory manipulation.
+
+8. **Sys:**
+   - Functions for starting and stopping applications.
+
+> **Note:** Some of these data types and functions are implemented by high-level programming languages themselves.
+
+### **Interfacing with I/O Devices**
+
+#### **Device Drivers:**
+
+The OS uses **device drivers** to manage communication with hardware. Drivers encapsulate hardware details and provide APIs for developers.
+
+#### **Screen Graphics:**
+
+- The screen uses a **raster/bitmap** system where each pixel is mapped to a specific memory location in RAM.
+  - The top-left pixel corresponds to `(0,0)`.
+  - Diagonal lines appear jagged due to the pixel grid, but this effect is imperceptible to the human eye because of the retina's resolution limitations.
+
+#### **Keyboard Input:**
+
+- Characters typed on the keyboard are mapped to specific memory locations in RAM, enabling direct processing by the OS.
+
+### **Dynamic Memory Management**
+
+The OS handles **dynamic memory allocation** and **garbage collection** for runtime variables and data. This is achieved through collaboration between the **OS**, **compiler**, and **VM**.
+
+- **alloc() and dealloc():**  
+  Implemented using a linked list algorithm called **freeList**.
+
+- **Heap:**
+
+  - A segment of RAM used for tracking dynamically allocated memory (persistent data beyond a single function execution).
+
+- **Stack:**
+  - A **LIFO (Last In, First Out)** structure used to track running function calls, local variables, and arguments.
+
+### **Limitations of the Jack OS**
+
+The Jack OS is a simplified system and lacks many features commonly found in full-fledged operating systems:
+
+1. **Process Handling:**
+
+   - No support for multi-threading or multi-processing, typically handled by OS kernels.
+
+2. **Disk Management:**
+
+   - No file system or persistent storage capabilities.
+
+3. **User Interfaces:**
+
+   - Lacks command-line or graphical user interfaces.
+
+4. **Privilege Separation:**
+
+   - No distinction between OS-level and application-level access privileges.
+
+5. **Security and Communication:**
+
+   - No built-in security protocols or communication mechanisms.
+
+   ### **Chapter 12 - The Operating System**
+
+The **Jack Operating System (OS)** provides a **standard library** that simplifies interaction between application developers and hardware. This abstraction makes it easier to perform tasks like I/O handling, memory management, and program control.
+
+### **APIs Provided by the Jack OS**
+
+The OS offers APIs for:
+
+- **Interacting with I/O Devices:**  
+  Includes devices like the keyboard and screen.
+
+- **Starting/Stopping Programs:**  
+  Functions for managing the lifecycle of applications.
+
+- **Memory Management:**  
+  Dynamically allocates and deallocates memory for data.
+
+### **Data Types and Functions Implemented by the OS**
+
+The OS includes several built-in data types and utility functions:
+
+1. **String:**
+
+   - Strings are implemented as arrays that map characters to their **ASCII** values, which are stored as binary numbers.
+
+2. **Number Operations:**
+
+   - **Addition/Subtraction:** Handled by the ALU (hardware).
+   - **Multiplication/Division:** Implemented at the software level within the OS but can also be hardware-supported.
+
+3. **Array:**
+
+   - Provides tools for creating and manipulating arrays.
+
+4. **Output:**
+
+   - Functions to display text on the screen.
+
+5. **Screen:**
+
+   - Utilities for drawing graphics (e.g., circles, lines).
+
+6. **Keyboard:**
+
+   - API for reading input from the keyboard.
+
+7. **Memory Management:**
+
+   - Functions like `malloc()` and `dealloc()` for dynamic memory manipulation.
+
+8. **Sys:**
+   - Functions for starting and stopping applications.
+
+> **Note:** Some of these data types and functions are implemented by high-level programming languages themselves.
+
+### **Interfacing with I/O Devices**
+
+#### **Device Drivers:**
+
+The OS uses **device drivers** to manage communication with hardware. Drivers encapsulate hardware details and provide APIs for developers.
+
+#### **Screen Graphics:**
+
+- The screen uses a **raster/bitmap** system where each pixel is mapped to a specific memory location in RAM.
+  - The top-left pixel corresponds to `(0,0)`.
+  - Diagonal lines appear jagged due to the pixel grid, but this effect is imperceptible to the human eye because of the retina's resolution limitations.
+
+#### **Keyboard Input:**
+
+- Characters typed on the keyboard are mapped to specific memory locations in RAM, enabling direct processing by the OS.
+
+### **Dynamic Memory Management**
+
+The OS handles **dynamic memory allocation** and **garbage collection** for runtime variables and data. This is achieved through collaboration between the **OS**, **compiler**, and **VM**.
+
+- **alloc() and dealloc():**  
+  Implemented using a linked list algorithm called **freeList**.
+
+- **Heap:**
+
+  - A segment of RAM used for tracking dynamically allocated memory (persistent data beyond a single function execution).
+
+- **Stack:**
+  - A **LIFO (Last In, First Out)** structure used to track running function calls, local variables, and arguments.
+
+### **Limitations of the Jack OS**
+
+The Jack OS is a simplified system and lacks many features commonly found in full-fledged operating systems:
+
+1. **Process Handling:**
+
+   - No support for multi-threading or multi-processing, typically handled by OS kernels.
+
+2. **Disk Management:**
+
+   - No file system or persistent storage capabilities.
+
+3. **User Interfaces:**
+
+   - Lacks command-line or graphical user interfaces.
+
+4. **Privilege Separation:**
+
+   - No distinction between OS-level and application-level access privileges.
+
+5. **Security and Communication:**
+   - No built-in security protocols or communication mechanisms.
