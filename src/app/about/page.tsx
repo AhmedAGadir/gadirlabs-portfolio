@@ -137,7 +137,7 @@ export default function About() {
 
             <p>
               Fast forward today, I work as a Senior Developer for a large Data
-              Security company. In my free time &apos;ve taken an interest in
+              Security company. In my free time I&apos;ve taken an interest in
               building full-stack applications and learning about the entire
               product development lifecycle. My goal now is to build great
               products that solve real and interesting problems.
